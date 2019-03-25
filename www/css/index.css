@@ -1,0 +1,14 @@
+
+
+
+.imgCtn{
+    overflow: hidden;
+    width: 100vw;
+    height: 55vh;
+}
+
+.pic{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
