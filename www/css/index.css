@@ -1,14 +1,79 @@
+html{
+    font-family: sans-serif;
+    background-color: hsla(352, 60%, 95%, 1.0);
+}
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.appTitle{
+    z-index: 900;
+    background-color: hsla(352, 77%, 60%, 1.0);
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 3rem;
+    box-shadow: 1px 4px 20px hsla(352, 77%, 0%, 0.3);
+}
 
+.profileCtn{
+    margin: 0 auto;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -100;
+    border-radius: 10px;
+    width: 90vw;
+    overflow: hidden;
+}
 
 .imgCtn{
-    overflow: hidden;
-    width: 100vw;
-    height: 55vh;
+    z-index: 100;
+    height: 58vh;
 }
 
 .pic{
     object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+.infoCtn{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color: hsla(352, 77%, 60%, 1.0);
+    font-size: 1.2rem;
+}
+
+p{
+    margin: 0;
+    margin-top: 1.25rem;
+}
+
+.distanceText{
+    margin-bottom: 1.25rem;
+}
+
+.footTitle{
+    bottom: 0;
+    width: 100vw;
+    height: 3rem;
+    font-size: 1.5rem;
+    background-color: hsla(352, 77%, 60%, 1.0);
+    box-shadow: 1px -4px 20px hsla(352, 77%, 0%, 0.16);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
