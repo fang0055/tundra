@@ -30,7 +30,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 7px;
     width: 90vw;
     overflow: hidden;
 }
@@ -87,4 +87,53 @@ p{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+
+/********** List Page **********/
+
+
+.listPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90vh;
+    margin-top: 1.5rem;
+}
+
+.listCtn{
+    margin: 0.5rem auto;
+    background-color: white;
+    border-radius: 7px;
+    width: 90vw;
+    display: grid;
+    align-items: center;
+    grid-template-areas:
+        "a b c";
+    grid-template-columns: 2fr 7fr 3fr;
+    /* justify-content: space-between; */
+    align-items: center;
+    overflow: hidden;
+}
+
+.listPic{
+    height: 5rem;
+    object-fit: cover;
+}
+
+.fullname{
+    margin-left: 4vw;
+    color: hsla(352, 77%, 60%, 1.0);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.lastname{
+    margin-top: 0.4rem;
+}
+
+
+
+.hide{
+    display: none;
 }

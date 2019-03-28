@@ -52,6 +52,10 @@ let app = {
         if (app.people.length < 3){
             app.ready();
         }
+    },
+
+    createList: function (){
+        
     }
 };
 
