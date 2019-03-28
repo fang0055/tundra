@@ -38,7 +38,8 @@ body{
 
 .imgCtn{
     z-index: 100;
-    height: 58vh;
+    height: 62vh;
+    width: 100%;
 }
 
 .pic{
@@ -51,17 +52,28 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    color: hsla(352, 77%, 60%, 1.0);
+    color: hsla(352, 0%, 60%, 1.0);
     font-size: 1.2rem;
 }
 
 p{
     margin: 0;
-    margin-top: 1.25rem;
 }
 
-.distanceText{
+.nameText{
+    margin: 1.75rem 0 1.25rem 0;
+    color: hsla(352, 77%, 60%, 1.0);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.otherInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
     margin-bottom: 1.25rem;
+    /* background-color: aqua; */
 }
 
 .footTitle{
