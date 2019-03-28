@@ -5,9 +5,6 @@ html{
 body{
     margin: 0;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .appTitle{
@@ -16,11 +13,20 @@ body{
     color: white;
     font-size: 1.5rem;
     display: flex;
+    position: fixed;
+    top: 0;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 3rem;
     box-shadow: 1px 4px 20px hsla(352, 77%, 0%, 0.3);
+}
+
+.homePage{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .profileCtn{
@@ -84,6 +90,7 @@ p{
     box-shadow: 1px -4px 20px hsla(352, 77%, 0%, 0.16);
     color: white;
     display: flex;
+    position: fixed;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -94,11 +101,11 @@ p{
 
 
 .listPage{
+    z-index: -100;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 90vh;
-    margin-top: 1.5rem;
+    margin-top: 4.5rem;
 }
 
 .listCtn{
@@ -110,7 +117,7 @@ p{
     align-items: center;
     grid-template-areas:
         "a b c";
-    grid-template-columns: 2fr 7fr 3fr;
+    grid-template-columns: 2fr 7fr 2fr;
     /* justify-content: space-between; */
     align-items: center;
     overflow: hidden;

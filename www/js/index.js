@@ -10,6 +10,8 @@ let app = {
         tiny = new tinyshell(document.querySelector(".profileCtn"));
         tiny.addEventListener("swiperight", app.saveOne);
         tiny.addEventListener("swipeleft", app.deleteOne);
+        document.querySelector(".saved").addEventListener("click", app.goToSaved);
+        document.querySelector(".home").addEventListener("click", app.goToHome);
     },
 
     ready: function (){
@@ -29,7 +31,7 @@ let app = {
     },
 
     createCard: function(){
-        document.querySelector(".pic").src = `${app.imageURL}${app.people[0].avatar}`;
+        document.querySelector(".pic").src = app.imageURL+app.people[0].avatar;
         document.querySelector(".nameText").textContent = app.people[0].first + " " + app.people[0].last;
         document.querySelector(".genderText").textContent = app.people[0].gender;
         document.querySelector(".distanceText").textContent = app.people[0].distance;
@@ -43,7 +45,6 @@ let app = {
         if (app.people.length < 3){
             app.ready();
         }
-
     },
 
     deleteOne: function(){
@@ -54,8 +55,50 @@ let app = {
         }
     },
 
+    goToSaved: function (){
+        app.createList()
+
+        document.querySelector(".homePage").classList.add("hide");
+        document.querySelector(".listPage").classList.remove("hide");
+    },
+
+    goToHome: function (){
+        document.querySelector(".homePage").classList.remove("hide");
+        document.querySelector(".listPage").classList.add("hide");
+    },
+
     createList: function (){
-        
+        document.querySelector(".listPage").innerHTML = "";
+
+        app.savedPeople.forEach( (item) => {
+            let documentFragment = new DocumentFragment();
+            let listCtn = document.createElement("div");
+            let listPic = document.createElement("img");
+            let fullname = document.createElement("div");
+            let firstname = document.createElement("div");
+            let lastname = document.createElement("div");
+            let deleteBtn = document.createElement("i");
+
+            listCtn.className = "listCtn";
+            listPic.className = "listPic";
+            fullname.className = "fullname";
+            firstname.className = "firstname";
+            lastname.className = "lastname";
+            deleteBtn.className = "deleteBtn far fa-trash-alt";
+
+            listPic.src = app.imageURL + item.avatar;
+            firstname.textContent = item.first;
+            lastname.textContent = item.last;
+
+            fullname.appendChild(firstname);
+            fullname.appendChild(lastname);
+            listCtn.appendChild(listPic);
+            listCtn.appendChild(fullname);
+            listCtn.appendChild(deleteBtn);
+            documentFragment.appendChild(listCtn);
+            document.querySelector(".listPage").appendChild(documentFragment);
+
+        })
     }
 };
 
