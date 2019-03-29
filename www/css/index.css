@@ -42,7 +42,7 @@ body{
     width: 90vw;
     overflow: hidden;
     transform: translateX(0) scale(1);
-    box-shadow: 1px 1px 20px hsla(352, 77%, 30%, 0.05);
+    box-shadow: 1px 1px 20px hsla(352, 77%, 10%, 0.1);
     transition: all 0.35s ease-in-out;
 }
 
@@ -119,22 +119,22 @@ p{
 
 .home{
     color: white;
-    transition: all 0.35s ease-out;
+    transition: all 0.65s ease-in-out;
 }
 
 .saved{
     color: white;
-    transition: all 0.35s ease-out;
+    transition: all 0.65s ease-in-out;
 }
 
 .homeLight{
     color: hsla(352, 77%, 42%, 1.0);
-    transition: all 0.35s ease-out;
+    transition: all 0.65s ease-out;
 }
 
 .savedLight{
     color: hsla(352, 77%, 42%, 1.0);
-    transition: all 0.35s ease-out;
+    transition: all 0.65s ease-out;
 }
 
 .overlaySave,
@@ -189,7 +189,7 @@ p{
     grid-template-columns: 2fr 7fr 2fr;
     /* justify-content: space-between; */
     align-items: center;
-    box-shadow: 1px 1px 20px hsla(352, 77%, 30%, 0.05);
+    box-shadow: 1px 1px 20px hsla(352, 77%, 10%, 0.1);
     overflow: hidden;
 }
 

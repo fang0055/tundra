@@ -40,6 +40,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <preference name="DisallowOverscroll" value="true" />
         <icon height="1024" src="res/icon/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icon/ios/icon-small.png" width="29" />
         <icon height="58" src="res/icon/ios/icon-small@2x.png" width="58" />
@@ -70,4 +71,5 @@
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <engine name="android" spec="^7.1.4" />
+    <engine name="ios" spec="^4.5.5" />
 </widget>

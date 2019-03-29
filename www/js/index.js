@@ -19,7 +19,8 @@ let app = {
         if (JSON.parse(sessionStorage.getItem(app.peopleKey))){
             app.checkLocal();
         } else{
-            document.querySelector(".remind").classList.remove("remindDisappear");
+            console.log("Nothing in sessionStorage...");
+            // document.querySelector(".remind").classList.remove("remindDisappear");
         }
 
         let url = "http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female"
@@ -42,8 +43,8 @@ let app = {
     checkLocal: function(){
         app.savedPeople = JSON.parse(sessionStorage.getItem(app.peopleKey));
         if (app.savedPeople.length == 0){
-            console.log("0000000?");
-            document.querySelector(".remind").classList.remove("remindDisappear");
+            console.log("CheckLocal has nothing in");
+            // document.querySelector(".remind").classList.remove("remindDisappear");
         } 
         // else{
         //     app.createList();
@@ -59,8 +60,8 @@ let app = {
     },
 
     toggleIcon: function(){
-        document.querySelector(".home").classList.toggle("homeLight");
-        document.querySelector(".saved").classList.toggle("savedLight");
+        // document.querySelector(".home").classList.toggle("homeLight");
+        // document.querySelector(".saved").classList.toggle("savedLight");
     },
 
     saveOne: function () {
@@ -89,7 +90,7 @@ let app = {
             document.querySelector(".overlaySave").classList.remove("overlayZero");
         },780);
 
-        document.querySelector(".remind").classList.add("remindDisappear");
+        // document.querySelector(".remind").classList.add("remindDisappear");
         sessionStorage.setItem("peopleKey", JSON.stringify(app.savedPeople));
 
         if (app.people.length < 3) {
@@ -128,8 +129,13 @@ let app = {
     },
 
     goToSaved: function () {
+        document.querySelector(".home").classList.add("homeLight");
+        document.querySelector(".saved").classList.remove("savedLight");
         app.createList()
         app.toggleIcon();
+        if (app.savedPeople.length == 0){
+            document.querySelector(".remind").classList.remove("remindDisappear");
+        } 
 
         document.querySelector(".profileCtn").classList.add("profileCtnHideL");
         document.querySelector(".listPage").classList.remove("hide");
@@ -142,6 +148,9 @@ let app = {
     },
 
     goToHome: function () {
+        document.querySelector(".home").classList.remove("homeLight");
+        document.querySelector(".saved").classList.add("savedLight");
+        document.querySelector(".remind").classList.add("remindDisappear");
         app.toggleIcon();
         document.querySelector(".listPage").classList.add("listPageHide");
         setTimeout( ()=>{
