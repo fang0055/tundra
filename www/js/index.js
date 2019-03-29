@@ -18,7 +18,6 @@ let app = {
     ready: function () {
         if (JSON.parse(sessionStorage.getItem(app.peopleKey))){
             app.checkLocal();
-            console.log("what?");
         } else{
             document.querySelector(".remind").classList.remove("remindDisappear");
         }
@@ -45,7 +44,10 @@ let app = {
         if (app.savedPeople.length == 0){
             console.log("0000000?");
             document.querySelector(".remind").classList.remove("remindDisappear");
-        }
+        } 
+        // else{
+        //     app.createList();
+        // }
     },
 
     createCard: function () {
@@ -58,18 +60,63 @@ let app = {
 
     saveOne: function () {
         app.savedPeople.push(app.people[0]);
+        document.querySelector(".profileCtn").classList.add("profileCtnHideR");
+        document.querySelector(".overlaySave").classList.remove("hide");
+        setTimeout( ()=>{
+            document.querySelector(".profileCtn").classList.add("hide");
+            document.querySelector(".profileCtn").classList.remove("profileCtnHideR");
+            document.querySelector(".profileCtn").classList.add("profileCtnSmall");
+        },350);
+
+        setTimeout( ()=>{
+            document.querySelector(".profileCtn").classList.remove("hide");
+            document.querySelector(".overlaySave").classList.add("overlayZero");
+        },400);
+
+        setTimeout( ()=>{
+            app.people.splice(0, 1);
+            app.createCard();
+            document.querySelector(".profileCtn").classList.remove("profileCtnSmall");
+        },420);
+
+        setTimeout( ()=>{
+            document.querySelector(".overlaySave").classList.add("hide");
+            document.querySelector(".overlaySave").classList.remove("overlayZero");
+        },780);
+
         document.querySelector(".remind").classList.add("remindDisappear");
         sessionStorage.setItem("peopleKey", JSON.stringify(app.savedPeople));
-        app.people.splice(0, 1);
-        app.createCard();
+
         if (app.people.length < 3) {
             app.ready();
         }
     },
 
     deleteOne: function () {
-        app.people.splice(0, 1);
-        app.createCard();
+        document.querySelector(".profileCtn").classList.add("profileCtnHideL");
+        document.querySelector(".overlayRej").classList.remove("hide");
+        setTimeout( ()=>{
+            document.querySelector(".profileCtn").classList.add("hide");
+            document.querySelector(".profileCtn").classList.remove("profileCtnHideL");
+            document.querySelector(".profileCtn").classList.add("profileCtnSmall");
+        },350);
+
+        setTimeout( ()=>{
+            document.querySelector(".profileCtn").classList.remove("hide");
+            document.querySelector(".overlayRej").classList.add("overlayZero");
+        },400);
+
+        setTimeout( ()=>{
+            app.people.splice(0, 1);
+            app.createCard();
+            document.querySelector(".profileCtn").classList.remove("profileCtnSmall");
+        },420);
+
+        setTimeout( ()=>{
+            document.querySelector(".overlayRej").classList.add("hide");
+            document.querySelector(".overlayRej").classList.remove("overlayZero");
+        },780);
+
         if (app.people.length < 3) {
             app.ready();
         }

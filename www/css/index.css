@@ -27,9 +27,11 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    overflow-x: hidden;
 }
 
 .profileCtn{
+    opacity: 1;
     margin: 0 auto;
     display: flex;
     background-color: white;
@@ -39,6 +41,23 @@ body{
     border-radius: 7px;
     width: 90vw;
     overflow: hidden;
+    transform: translateX(0) scale(1);
+    transition: all 0.35s ease-in-out;
+}
+
+.profileCtnHideR{
+    transform: translateX(100vw) scale(0.7);
+    transition: all 0.35s ease-in-out;
+}
+
+.profileCtnHideL{
+    transform: translateX(-100vw) scale(0.7);
+    transition: all 0.35s ease-in-out;
+}
+
+.profileCtnSmall{
+    opacity: 0.1;
+    transform: translateX(0) scale(0.1);
 }
 
 .imgCtn{
@@ -82,6 +101,7 @@ p{
 }
 
 .footTitle{
+    z-index: 1000;
     bottom: 0;
     width: 100vw;
     height: 3rem;
@@ -96,6 +116,27 @@ p{
     align-items: center;
 }
 
+.overlaySave,
+.overlayRej{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: hsla(352, 77%, 0%, 0.6);
+    color: white;
+    font-size: 3rem;
+}
+
+.overlayZero{
+    opacity: 0;
+    transition: all 0.35s ease-out;
+}
+
 
 /********** List Page **********/
 
@@ -104,7 +145,7 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 4.5rem;
+    margin: 4.5rem 0;
 }
 
 .listCtn{

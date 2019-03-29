@@ -12,6 +12,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "ca.edumedia.fang0055.tundra"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "ca.edumedia.fang0055.tundra"
     }
   },
   "dependent_plugins": {}
