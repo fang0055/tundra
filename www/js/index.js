@@ -17,10 +17,7 @@ let app = {
 
     ready: function () {
         if (JSON.parse(sessionStorage.getItem(app.peopleKey))){
-            app.checkLocal();
-        } else{
-            console.log("Nothing in sessionStorage...");
-            // document.querySelector(".remind").classList.remove("remindDisappear");
+            app.savedPeople = JSON.parse(sessionStorage.getItem(app.peopleKey));
         }
 
         let url = "http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female"
@@ -31,8 +28,6 @@ let app = {
             .then((data) => {
                 app.people = app.people.concat(data.profiles);
                 app.imageURL = "https:" + decodeURIComponent(data.imgBaseURL);
-                console.log(app.imageURL);
-                console.log(app.people);
                 app.createCard();
             })
             .catch((err) => {
@@ -40,28 +35,11 @@ let app = {
             })
     },
 
-    checkLocal: function(){
-        app.savedPeople = JSON.parse(sessionStorage.getItem(app.peopleKey));
-        if (app.savedPeople.length == 0){
-            console.log("CheckLocal has nothing in");
-            // document.querySelector(".remind").classList.remove("remindDisappear");
-        } 
-        // else{
-        //     app.createList();
-        // }
-    },
-
     createCard: function () {
         document.querySelector(".pic").src = app.imageURL + app.people[0].avatar;
         document.querySelector(".nameText").textContent = app.people[0].first + " " + app.people[0].last;
         document.querySelector(".genderText").textContent = app.people[0].gender;
         document.querySelector(".distanceText").textContent = app.people[0].distance;
-        console.log(app.people);
-    },
-
-    toggleIcon: function(){
-        // document.querySelector(".home").classList.toggle("homeLight");
-        // document.querySelector(".saved").classList.toggle("savedLight");
     },
 
     saveOne: function () {
@@ -90,7 +68,6 @@ let app = {
             document.querySelector(".overlaySave").classList.remove("overlayZero");
         },780);
 
-        // document.querySelector(".remind").classList.add("remindDisappear");
         sessionStorage.setItem("peopleKey", JSON.stringify(app.savedPeople));
 
         if (app.people.length < 3) {
@@ -132,7 +109,6 @@ let app = {
         document.querySelector(".home").classList.add("homeLight");
         document.querySelector(".saved").classList.remove("savedLight");
         app.createList()
-        app.toggleIcon();
         if (app.savedPeople.length == 0){
             document.querySelector(".remind").classList.remove("remindDisappear");
         } 
@@ -151,7 +127,6 @@ let app = {
         document.querySelector(".home").classList.remove("homeLight");
         document.querySelector(".saved").classList.add("savedLight");
         document.querySelector(".remind").classList.add("remindDisappear");
-        app.toggleIcon();
         document.querySelector(".listPage").classList.add("listPageHide");
         setTimeout( ()=>{
             document.querySelector(".homePage").classList.remove("hide");
@@ -166,6 +141,9 @@ let app = {
 
     createList: function () {
         document.querySelector(".listPage").innerHTML = "";
+        if (JSON.parse(sessionStorage.getItem(app.peopleKey))){
+            app.savedPeople = JSON.parse(sessionStorage.getItem(app.peopleKey));
+        }
 
         app.savedPeople.forEach((item) => {
             let documentFragment = new DocumentFragment();
