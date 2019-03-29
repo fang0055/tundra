@@ -4,7 +4,7 @@ html{
 }
 body{
     margin: 0;
-    height: 100vh;
+    height: 90vh;
 }
 
 .appTitle{
@@ -101,7 +101,6 @@ p{
 
 
 .listPage{
-    z-index: -100;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -129,9 +128,8 @@ p{
 }
 
 .fullname{
-    margin-left: 4vw;
+    margin-left: 6vw;
     color: hsla(352, 77%, 60%, 1.0);
-    font-weight: 600;
     font-size: 1.25rem;
 }
 
@@ -139,8 +137,61 @@ p{
     margin-top: 0.4rem;
 }
 
+.deleteBtn{
+    font-size: 1.25rem;
+    background-color: white;
+    color: hsla(352, 0%, 55%, 1.0);
+    padding: 0.75rem 0.85rem;
+    border-radius: 50px;
+    transition: all 0.35s ease-out;
+}
 
+.deleteBtnRed{
+    background-color: red;
+    color: white;
+    transform: rotate(360deg);
+    transition: all 0.35s ease-out;
+}
+
+.deleteBtnCfm{
+    margin-left: 0.5rem;
+    transform: rotate(360deg) scale(1.15);
+    transition: all 0.35s ease-out;
+}
+
+.deleteBtnHide{
+    transform: rotate(-360deg) scale(0.1);
+    transition: all 0.35s ease-in;
+}
+
+.hideItem{
+    transform: scale(0.1);
+    transition: all 0.35s ease-in;
+}
+
+.removeItem{
+    overflow: hidden;
+    width: 5rem;
+    border-radius: 50px;
+    transition: all 0.35s ease-out;
+}
 
 .hide{
+    display: none;
+}
+
+.remind{
+    color:hsla(352, 0%, 55%, 1.0);
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remind p{
+    margin-top: 1rem;
+}
+
+.remindDisappear{
     display: none;
 }
