@@ -221,14 +221,14 @@ let app = {
             setTimeout(() => {
                 document.querySelector(".deleteBtnRed").classList.add("deleteBtnHide");
                 document.querySelector(".deleteBtnRed").parentElement.parentElement.classList.add("hideItem");
-            }, 500);
+            }, 350);
 
             setTimeout(() => {
                 document.querySelector(".listPage").removeChild(document.querySelector(".removeItem"));
                 if(app.savedPeople.length < 1){
                     document.querySelector(".remind").classList.remove("remindDisappear");
                 }
-            }, 850);
+            }, 700);
         }
     }
 };
