@@ -58,6 +58,11 @@ let app = {
         console.log(app.people);
     },
 
+    toggleIcon: function(){
+        document.querySelector(".home").classList.toggle("homeLight");
+        document.querySelector(".saved").classList.toggle("savedLight");
+    },
+
     saveOne: function () {
         app.savedPeople.push(app.people[0]);
         document.querySelector(".profileCtn").classList.add("profileCtnHideR");
@@ -124,14 +129,30 @@ let app = {
 
     goToSaved: function () {
         app.createList()
+        app.toggleIcon();
 
-        document.querySelector(".homePage").classList.add("hide");
+        document.querySelector(".profileCtn").classList.add("profileCtnHideL");
         document.querySelector(".listPage").classList.remove("hide");
+        setTimeout( ()=>{
+            document.querySelector(".homePage").classList.add("hide");
+        }, 350);
+        setTimeout( ()=>{
+            document.querySelector(".listPage").classList.remove("listPageHide");
+        }, 250);
     },
 
     goToHome: function () {
-        document.querySelector(".homePage").classList.remove("hide");
-        document.querySelector(".listPage").classList.add("hide");
+        app.toggleIcon();
+        document.querySelector(".listPage").classList.add("listPageHide");
+        setTimeout( ()=>{
+            document.querySelector(".homePage").classList.remove("hide");
+        }, 250);
+        setTimeout( ()=>{
+            document.querySelector(".profileCtn").classList.remove("profileCtnHideL");
+        }, 270);
+        setTimeout( ()=>{
+            document.querySelector(".listPage").classList.add("hide");
+        }, 350);
     },
 
     createList: function () {
