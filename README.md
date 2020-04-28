@@ -1,4 +1,4 @@
-# tundra
+# Tundra
 This app is developed using Cordova with elegant UI design and animations.
 
 The main features:
